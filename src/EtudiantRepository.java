@@ -6,7 +6,7 @@ import java.sql.Statement;
 
 public class EtudiantRepository implements IEtudiantRep {
 	
-	
+	@Override
 	public void add(Etudiant E) throws SQLException
 	{
 
@@ -25,7 +25,7 @@ public class EtudiantRepository implements IEtudiantRep {
 		connect.close();
 	 }
 
-  
+	@Override
 	public boolean Exists(String email) throws SQLException	
 	{
 		DBConnection BD= DBConnection.getInstance();
@@ -45,7 +45,7 @@ public class EtudiantRepository implements IEtudiantRep {
 		return false;
 	}
 	
- 
+	@Override
 	public boolean Exists(int mat) throws SQLException	
 	{
 		DBConnection BD= DBConnection.getInstance();
