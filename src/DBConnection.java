@@ -10,8 +10,8 @@ public class DBConnection {
 		String passwd = "";
 	    private Connection conn;
 
-	   
-	    public DBConnection() throws SQLException {
+	    private static DBConnection instance;
+	    private DBConnection() throws SQLException {
 			conn=DriverManager.getConnection(url, user,passwd);
 		}
 
@@ -20,7 +20,12 @@ public class DBConnection {
 			return conn;
 		}
 
-
+	    public static DBConnection getInstance() throws SQLException {
+	    	if(instance == null) {
+	    		instance = new DBConnection();
+	    	}
+	    	return instance;
+	    }
 		
 	
 }
