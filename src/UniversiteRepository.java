@@ -5,12 +5,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class UniversiteRepository {
+public class UniversiteRepository implements IUniversiteRep {
 	
 	
-	Universite GetById(int universityId) throws SQLException {
+	public Universite GetById(int universityId) throws SQLException {
 		
-		DBConnection BD= new DBConnection();
+		DBConnection BD= DBConnection.getInstance();
 		Connection connect=BD.getConn(); 
 		Statement stmt = connect.createStatement();
 		System.out.println("LogBD : début recherche de id université dans la base de donnée");
