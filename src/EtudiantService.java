@@ -5,32 +5,24 @@ import java.sql.Statement;
 import java.util.ArrayList;
 public class EtudiantService {
 	
-	
-	boolean inscription (int matricule, String nom, String prénom, String email,String pwd, int id_universite) throws SQLException	
+	private IEtudiantRep EtudRep;
+    private IUniversiteRep UnivRep;
+    private IJournal journal;
+	public EtudiantService(IEtudiantRep EtudRep, IUniversiteRep UnivRep,IJournal journal) {
+		this.EtudRep = EtudRep;
+		this.UnivRep = UnivRep;
+		this.journal = journal;
+	}
+
+	public boolean inscription (int matricule, String nom, String prénom, String email,String pwd, int id_universite) throws SQLException	
 	{
-		IEtudiantRep StudRep= new EtudiantRepository();
+		IEtudiantRep EtudRep= new EtudiantRepository();
 	    IUniversiteRep UnivRep= new UniversiteRepository();
 	    Etudiant stud = new Etudiant(matricule, nom, prénom, email,pwd,id_universite);
 	    Universite univ=UnivRep.GetById(id_universite);
 	    
 	    System.out.println("Log: début de l'opération d'ajout de l'étudiant avec matricule "+matricule);
 	    
-	    if(email == null || email.length() == 0)
-	    {
-	    	return false;
-	    }
-	    
-	    if (StudRep.Exists(matricule))
-	    {
-	        return false;
-	    }
-	    
-		if (StudRep.Exists(email))
-	    {
-	        return false;
-	    }
-		
-		
 		
 		 if (univ.getPack() == TypePackage.Standard)
 	     {

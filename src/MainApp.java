@@ -5,8 +5,7 @@ public class MainApp {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		
-
+		 
 		try {
 			
 			OutputFonction c = new OutputFonction();
@@ -18,12 +17,13 @@ public class MainApp {
 			c.ajouter(journal3);
 
 			IDBConnection db = DBConnection.getInstance();
-			IEtudiantRep EtudRep= new EtudiantRepository(db,c);
-		    IUniversiteRep UnivRep= new UniversiteRepository(db,c);
-			EtudiantService serv=new EtudiantService(EtudRep,UnivRep,c);
+			IEtudiantRep EtudRep= new EtudiantRepository();
+		    IUniversiteRep UnivRep= new UniversiteRepository();
+			EtudiantService serv=new EtudiantService (EtudRep,UnivRep,c);
 			
-
-		    serv.inscription(2, "Guendouziiiii", "wassila", "guen@gmail.com","xxxx", 1);
+			 IEtudiant stud = new Etudiant(4, "Guendouziiiii", "wassila", "guen4@gmail.com","xxxx", 2);
+			  
+			 serv.inscription(stud);
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
