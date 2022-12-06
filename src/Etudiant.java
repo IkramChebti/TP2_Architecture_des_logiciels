@@ -102,12 +102,9 @@ public class Etudiant  {
 		}
 
 		
-		public void LivreBonus(UniversiteRepository universite) {
-	        if (universite.getpack() == TypePackage.Standard) {
-	        	this.nbLivreMensuel_Autorise= nbLivreMensuel_Autorise + 5;
-		}
-	        else if (universite.getpack() == TypePackage.Premium) {
-	        	this.nbLivreMensuel_Autorise= nbLivreMensuel_Autorise + 5;
-	    }
+		public void LivreBonus(Universite universite) {
+	        AbstractFct f= new ClasseAbstract();
+	        Package Pack= f.getPackage((universite.getPack()));
+	        setNbLivreMensuel_Autorise(this.getNbLivreMensuel_Autorise()+Pack.getNbrLivreBonus());
 		}
 		}
