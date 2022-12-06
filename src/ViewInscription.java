@@ -6,7 +6,10 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.*;
-public class ViewInscription {
+import controleur.ViewInscriptionAbstraite;
+
+
+public class ViewInscription extends ViewInscriptionAbstraite {
 
 	
 		private JTextField matricule = new JTextField(10);

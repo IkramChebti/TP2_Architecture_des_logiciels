@@ -14,20 +14,20 @@
 	public class ControleurInscription implements ActionListener {
 		
 		private EtudiantService EtudiantService;
-		
-		public ControleurInscription(ViewInscription View,EtudiantService EtudiantService) {
+		private ViewInscriptionAbstraite View;
+
+		public ControleurInscription(ViewInscriptionAbstraite View,EtudiantService EtudiantService) {
 			this.View = View;
 			this.EtudiantService = EtudiantService;
 		}
 		
-		protected void finalize() {
-			View.unregistre(this);
-		}
+		
+		
 		@Override
 		public void actionPerformed(ActionEvent Etudiant) {
 			if (Etudiant.getSource() == View.getButton()) {
 			if(View.Entrees_Enregistres()) {
-				int matricule = View.getMat();
+				int matricule = View.getMatricule();
 				String nom =View.getNom();
 				String prenom = View.getPrenom();
 				String email =View.getMail();
@@ -40,9 +40,9 @@
 					}else {
 						View.displayErrorMessage("Erreur");
 					}				
-				} catch (SQLException e1) {
+				} catch (SQLException Etud) {
 					Etud.printStackTrace();
-				} catch (IOException e1) {
+				} catch (IOException Etud) {
 					Etud.printStackTrace();
 				}
 				}
