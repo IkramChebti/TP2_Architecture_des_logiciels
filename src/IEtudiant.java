@@ -1,4 +1,5 @@
-
+import java.sql.SQLException;
+import java.util.ArrayList;
 public interface IEtudiant {
 	public int getMatricule();
 	public void setMatricule(int matricule);
@@ -17,4 +18,6 @@ public interface IEtudiant {
 	public String getPwd();
 	public void setPwd(String pwd) ;
 	public void Bonus(int nbrLivreBonus);
+	public ArrayList<Etudiant> getEtudiantParUniversite() throws SQLException;
+	
 }

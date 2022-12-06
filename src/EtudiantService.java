@@ -33,17 +33,20 @@ public class EtudiantService {
 	    	 stud.setNbLivreMensuel_Autorise(10*2);
 	     }                           
 	     
-		 StudRep.add(stud);
+		 EtudRep.add(stud);
 		 System.out.println("Log: Fin de l'opération d'ajout de l'étudiant avec matricule "+matricule);
-		 return true;
-	    
-		
+		 return true;	
 	}
 	
-	
+	public void AjouterBonus() throws SQLException, IOException {
+		ArrayList<Etudiant> lesetudiants =  GetEtudiantParUniversite();
+		for( Etudiant n :lesetudians) {
+			n.Bonus(UnivRep.nbrLivreBonus(n.getId_universite()));
+		}
+		}
 	
 
-public ArrayList<Etudiant> GetEtudiantParUniversitye()
+public ArrayList<Etudiant> GetEtudiantParUniversite()
 {
     //...
 	return new ArrayList<>(4);
@@ -59,3 +62,4 @@ public ArrayList<Etudiant> GetEtudiatparLivreEmprunte()
 
 	
 }
+

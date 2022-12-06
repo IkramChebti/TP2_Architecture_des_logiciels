@@ -9,7 +9,7 @@ public class Etudiant  {
 	    private int nbLivreMensuel_Autorise;
 	    private int nbLivreEmprunte;
 	    private int id_universite;
-	    
+	    private String TypePackage;
 	   
 		public Etudiant(int matricule, String nom, String prenom, String email,String pwd, int id_universite) {
 			
@@ -102,12 +102,12 @@ public class Etudiant  {
 		}
 
 		
-		public void LivreBonus(Universite universite) {
+		public void LivreBonus(UniversiteRepository universite) {
 	        if (universite.getpack() == TypePackage.Standard) {
-			this.NombreLivreMensuel = NombreLivreMensuel + 5;
+	        	this.nbLivreMensuel_Autorise= nbLivreMensuel_Autorise + 5;
 		}
 	        else if (universite.getpack() == TypePackage.Premium) {
-	        this.NombreLivreMensuel = NombreLivreMensuel + 10;
+	        	this.nbLivreMensuel_Autorise= nbLivreMensuel_Autorise + 5;
 	    }
 		}
 		}
