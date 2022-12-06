@@ -102,5 +102,12 @@ public class Etudiant  {
 		}
 
 		
-		
+		public void LivreBonus(Universite universite) {
+	        if (universite.getpack() == TypePackage.Standard) {
+			this.NombreLivreMensuel = NombreLivreMensuel + 5;
+		}
+	        else if (universite.getpack() == TypePackage.Premium) {
+	        this.NombreLivreMensuel = NombreLivreMensuel + 10;
 	    }
+		}
+		}
